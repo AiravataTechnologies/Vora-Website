@@ -1,4 +1,4 @@
-import { HardHatIcon, HeadphonesIcon, WalletIcon, ArrowRight } from "lucide-react";
+import { Settings, ShieldCheck, Phone, ArrowRight } from "lucide-react";
 import React from "react";
 import { Button } from "../../../../components/ui/button";
 
@@ -6,15 +6,15 @@ export const HeroSection = (): JSX.Element => {
   // Feature items data for mapping
   const featureItems = [
     {
-      icon: <HardHatIcon className="w-6 h-6 text-[#FEDD00]" />,
+      icon: <Settings className="w-6 h-6 text-[#FEDD00]" />,
       text: "Turnkey Solutions",
     },
     {
-      icon: <HeadphonesIcon className="w-6 h-6 text-[#FEDD00]" />,
+      icon: <ShieldCheck className="w-6 h-6 text-[#FEDD00]" />,
       text: "Compliance Ready Execution",
     },
     {
-      icon: <WalletIcon className="w-6 h-6 text-[#FEDD00]" />,
+      icon: <Phone className="w-6 h-6 text-[#FEDD00]" />,
       text: "Emergency Support",
     },
   ];
