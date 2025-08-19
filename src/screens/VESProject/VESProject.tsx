@@ -3,6 +3,106 @@ import { HeaderSection } from "../VESHomePage/sections/HeaderSection/HeaderSecti
 
 const FooterSection = lazy(() => import("../VESHomePage/sections/FooterSection/FooterSection").then(module => ({ default: module.FooterSection })));
 
+// Add this after your imports and before const VESProject: React.FC = () => {
+
+// Projects Page Header Section Component - Matching About Page Style
+const ProjectsPageHeader = ({ logoPath = "https://via.placeholder.com/120x120/ffffff/000000?text=LOGO" }) => (
+  <div style={{ backgroundColor: '#c4c4c4' }} className="text-white py-8 sm:py-12 md:py-16 lg:py-20 mt-16 sm:mt-0">
+    <div className="container mx-auto px-4 sm:px-6 md:px-8 max-w-7xl">
+      <div className="text-center">
+        <div className="flex justify-center mb-4 sm:mb-6">
+        </div>
+        <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-6xl xl:text-7xl font-bold mb-3 sm:mb-4 text-slate-800 animate-slide-down">Our Projects</h1>
+        <p className="text-base sm:text-lg md:text-xl lg:text-2xl text-slate-700 max-w-4xl mx-auto px-2 sm:px-4 animate-fade-in opacity-0 animation-delay-300">
+          Where Integrity, Innovation and Legacy, Power Future-Ready Solutions. Explore our portfolio of cutting-edge electrical projects that are shaping India's energy landscape.
+        </p>
+        <nav className="flex justify-center items-center mt-4 sm:mt-6 text-slate-600 animate-fade-in opacity-0 animation-delay-500">
+          <span className="text-xs sm:text-sm md:text-base lg:text-lg">Homepage</span>
+          <span className="mx-2 text-sm sm:text-lg">›</span>
+          <span className="text-xs sm:text-sm md:text-base lg:text-lg">Projects</span>
+        </nav>
+
+        {/* Quick Stats - Enhanced with animations */}
+        {/* <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mt-8 sm:mt-12 max-w-2xl mx-auto animate-fade-in opacity-0 animation-delay-700">
+                    <div className="bg-white bg-opacity-90 p-3 sm:p-4 rounded-lg shadow-sm hover:shadow-md transition-shadow duration-300">
+                        <div className="text-xl sm:text-2xl font-bold text-slate-800">200+</div>
+                        <div className="text-xs sm:text-sm text-slate-600">Projects</div>
+                    </div>
+                    <div className="bg-white bg-opacity-90 p-3 sm:p-4 rounded-lg shadow-sm hover:shadow-md transition-shadow duration-300">
+                        <div className="text-xl sm:text-2xl font-bold text-slate-800">50MW+</div>
+                        <div className="text-xs sm:text-sm text-slate-600">Installed</div>
+                    </div>
+                    <div className="bg-white bg-opacity-90 p-3 sm:p-4 rounded-lg shadow-sm hover:shadow-md transition-shadow duration-300">
+                        <div className="text-xl sm:text-2xl font-bold text-slate-800">15</div>
+                        <div className="text-xs sm:text-sm text-slate-600">States</div>
+                    </div>
+                    <div className="bg-white bg-opacity-90 p-3 sm:p-4 rounded-lg shadow-sm hover:shadow-md transition-shadow duration-300">
+                        <div className="text-xl sm:text-2xl font-bold text-slate-800">24/7</div>
+                        <div className="text-xs sm:text-sm text-slate-600">Support</div>
+                    </div>
+                </div> */}
+      </div>
+    </div>
+    <style>{`
+            @keyframes fade-in-up {
+                from {
+                    opacity: 0;
+                    transform: translateY(30px);
+                }
+                to {
+                    opacity: 1;
+                    transform: translateY(0);
+                }
+            }
+            
+            @keyframes slide-down {
+                from {
+                    opacity: 0;
+                    transform: translateY(-30px);
+                }
+                to {
+                    opacity: 1;
+                    transform: translateY(0);
+                }
+            }
+            
+            @keyframes fade-in {
+                from {
+                    opacity: 0;
+                }
+                to {
+                    opacity: 1;
+                }
+            }
+            
+            .animate-fade-in-up {
+                animation: fade-in-up 0.8s ease-out;
+            }
+            
+            .animate-slide-down {
+                animation: slide-down 0.6s ease-out;
+            }
+            
+            .animate-fade-in {
+                animation: fade-in 0.8s ease-out forwards;
+            }
+            
+            .animation-delay-300 {
+                animation-delay: 0.3s;
+            }
+            
+            .animation-delay-500 {
+                animation-delay: 0.5s;
+            }
+            
+            .animation-delay-700 {
+                animation-delay: 0.7s;
+            }
+        `}</style>
+  </div>
+);
+
+
 const VESProject: React.FC = () => {
   const [expandedProjects, setExpandedProjects] = useState<Record<number, boolean>>({});
   const [activeFilter, setActiveFilter] = useState<string>('All');
@@ -179,39 +279,7 @@ const VESProject: React.FC = () => {
       <HeaderSection />
 
       {/* Hero Section */}
-      <section className="bg-gray-100 py-20">
-        <div className="container mx-auto px-4 text-center">
-          <h1 className="text-5xl font-bold text-black mb-6">Our Projects</h1>
-          <p className="text-xl text-gray-600 mb-8 max-w-3xl mx-auto">
-            Where Integrity, Innovation and Legacy, Power Future-Ready Solutions. Explore our portfolio of cutting-edge electrical projects that are shaping India's energy landscape.
-          </p>
-          <nav className="flex justify-center items-center space-x-2 text-gray-600 mb-8">
-            <span>Homepage</span>
-            <span>›</span>
-            <span className="text-black font-medium">Projects</span>
-          </nav>
-
-          {/* Quick Stats */}
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mt-8 max-w-2xl mx-auto">
-            <div className="bg-white p-4 rounded-lg shadow-sm">
-              <div className="text-2xl font-bold text-black">200+</div>
-              <div className="text-sm text-gray-600">Projects</div>
-            </div>
-            <div className="bg-white p-4 rounded-lg shadow-sm">
-              <div className="text-2xl font-bold text-black">50MW+</div>
-              <div className="text-sm text-gray-600">Installed</div>
-            </div>
-            <div className="bg-white p-4 rounded-lg shadow-sm">
-              <div className="text-2xl font-bold text-black">15</div>
-              <div className="text-sm text-gray-600">States</div>
-            </div>
-            <div className="bg-white p-4 rounded-lg shadow-sm">
-              <div className="text-2xl font-bold text-black">24/7</div>
-              <div className="text-sm text-gray-600">Support</div>
-            </div>
-          </div>
-        </div>
-      </section>
+      <ProjectsPageHeader />
 
       {/* Company Introduction */}
       <section className="py-20 bg-white">
