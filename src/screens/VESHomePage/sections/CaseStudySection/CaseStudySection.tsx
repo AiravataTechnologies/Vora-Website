@@ -109,12 +109,23 @@ export const CaseStudySection = () => {
   const yellow = "#fedd00e6";
 
   return (
-    <section className="relative w-full py-[75px] md:py-[100px] lg:py-[150px] bg-white overflow-hidden">
+    <section className="relative w-full py-12 md:py-16 lg:py-20 bg-white overflow-hidden">
       <div className="container max-w-[1280px] mx-auto px-4 md:px-6 lg:px-8">
         <div className="flex flex-col items-start gap-8 md:gap-12 lg:gap-16">
           {/* Section Header */}
-          <div className="flex flex-col items-center justify-center w-full animate-in slide-in-from-top-4 duration-700 ease-out gap-4">
-            {/* (No extra V above title) */}
+          <div className="flex flex-col items-center justify-center w-full animate-in slide-in-from-top-4 duration-700 ease-out gap-6">
+            {/* Section Label */}
+            <div className="inline-flex items-center gap-3 animate-in slide-in-from-top-2 duration-700 ease-out delay-100">
+              {/* Lightning Icon */}
+              <img
+                className="w-[60px] h-[70px] sm:w-[80px] sm:h-[95px] lg:w-[99px] lg:h-[117px] object-contain"
+                alt="Lightning icon"
+                src="/images/2676-080625-vora-hp-png-02-2.png"
+              />
+              <span className="font-semibold text-xl sm:text-2xl lg:text-3xl tracking-[1.5px] leading-[26px] sm:leading-[30px] lg:leading-[36px]">
+                OUR PROJECTS
+              </span>
+            </div>
 
             {/* Title */}
             <h2 className="font-semibold text-2xl sm:text-3xl md:text-4xl lg:text-5xl text-black tracking-[-0.8px] md:tracking-[-1.2px] lg:tracking-[-1.44px] leading-tight lg:leading-[57.6px] font-['Inter',Helvetica] text-center transition-all duration-300">
@@ -240,22 +251,7 @@ export const CaseStudySection = () => {
         </div>
       </div>
 
-      {/* Section Label (replaces lightning icon) */}
-      {/* Section Label (replaces lightning icon) */}
-      <div className="absolute top-[45px] sm:top-[65px] md:top-[85px] lg:top-[105px] left-1/2 -translate-x-1/2 inline-flex items-center gap-2 animate-in slide-in-from-top-2 duration-700 ease-out delay-100">
-        {/* Yellow V icon styled like your reference */}
-        <span
-          className="flex items-center justify-center font-extrabold text-2xl sm:text-3xl lg:text-4xl"
-          style={{ color: yellow, lineHeight: 1 }}
-          aria-hidden
-        >
-          V
-        </span>
 
-        <span className="font-semibold text-xl sm:text-2xl lg:text-3xl tracking-[1.5px] leading-[26px] sm:leading-[30px] lg:leading-[36px]">
-          OUR PROJECTS
-        </span>
-      </div>
 
     </section>
   );

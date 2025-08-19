@@ -1,86 +1,59 @@
 import React, { useState, useEffect } from "react";
-import { Card, CardContent } from "../../../../components/ui/card";
 
 export const TestimonialSection = () => {
   const [isVisible, setIsVisible] = useState(false);
-  const [activeTestimonial, setActiveTestimonial] = useState(0);
-  const [activePersonCard, setActivePersonCard] = useState(0);
 
   useEffect(() => {
     setIsVisible(true);
   }, []);
 
-  // Testimonial data for mapping
-  const testimonials = [
+  // Define yellow color
+  const yellow = "#FEDD00";
+
+  // Brand logos data
+  const brands = [
     {
-      name: "Bromi Guden",
-      position: "CEO, Payscale",
+      name: "Payscale",
       vectorSrc: "/images/vector-4.svg",
       vectorWidth: "w-[58px]",
     },
     {
-      name: "Sophia Martinez",
-      position: "CEO, Arktico",
+      name: "Arktico",
       vectorSrc: "/images/vector-3.svg",
       vectorWidth: "w-[74px]",
     },
     {
-      name: "Serene Logia",
-      position: "CEO, Getdonelist",
+      name: "Getdonelist",
       vectorSrc: "/images/vector-1.svg",
       vectorWidth: "w-[65px]",
     },
     {
-      name: "Brandon Suelu",
-      position: "CEO, Teamtalk",
+      name: "Teamtalk",
+      vectorSrc: "/images/vector-2.svg",
+      vectorWidth: "w-[77px]",
+    },
+    // Duplicate for seamless loop
+    {
+      name: "Payscale",
+      vectorSrc: "/images/vector-4.svg",
+      vectorWidth: "w-[58px]",
+    },
+    {
+      name: "Arktico",
+      vectorSrc: "/images/vector-3.svg",
+      vectorWidth: "w-[74px]",
+    },
+    {
+      name: "Getdonelist",
+      vectorSrc: "/images/vector-1.svg",
+      vectorWidth: "w-[65px]",
+    },
+    {
+      name: "Teamtalk",
       vectorSrc: "/images/vector-2.svg",
       vectorWidth: "w-[77px]",
     },
   ];
-
-  // Person cards data
-  const personCards = [
-    {
-      name: "David Wilson",
-      position: "CEO, Selfast",
-      image: "/images/bearded-south-asian-man-wearing-turban-smiling-and-2025-02-14-06.png",
-      alt: "Bearded south asian man"
-    },
-    {
-      name: "Sarah Johnson",
-      position: "CTO, TechFlow",
-      image: "/images/bearded-south-asian-man-wearing-turban-smiling-and-2025-02-14-06.png",
-      alt: "Professional woman"
-    },
-    {
-      name: "Michael Chen",
-      position: "CEO, InnovateLab",
-      image: "/images/bearded-south-asian-man-wearing-turban-smiling-and-2025-02-14-06.png",
-      alt: "Asian businessman"
-    },
-    {
-      name: "Emma Rodriguez",
-      position: "Founder, StartupHub",
-      image: "/images/bearded-south-asian-man-wearing-turban-smiling-and-2025-02-14-06.png",
-      alt: "Latina entrepreneur"
-    }
-  ];
-
-  const nextTestimonial = () => {
-    setActiveTestimonial((prev) => (prev + 1) % testimonials.length);
-  };
-
-  const prevTestimonial = () => {
-    setActiveTestimonial((prev) => (prev - 1 + testimonials.length) % testimonials.length);
-  };
-
-  const nextPersonCard = () => {
-    setActivePersonCard((prev) => (prev + 1) % personCards.length);
-  };
-
-  const prevPersonCard = () => {
-    setActivePersonCard((prev) => (prev - 1 + personCards.length) % personCards.length);
-  };
 
   return (
     <section className="relative w-full py-16 md:py-36 bg-[#f4f5f6] overflow-hidden">
@@ -90,9 +63,14 @@ export const TestimonialSection = () => {
           className={`flex flex-col w-full max-w-[626px] items-center justify-center gap-4 md:gap-6 transition-all duration-1000 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
             }`}
         >
-          <div className="relative flex items-center gap-2">
-            <img className="w-5 h-5" alt="Lightning" src="/images/lightning.svg" />
-            <div className="font-medium text-black text-base tracking-[1.28px] leading-[19.2px] whitespace-nowrap">
+          <div className="relative flex items-center gap-2 animate-in slide-in-from-top-2 duration-700 ease-out delay-100">
+            <img
+              className="w-[60px] h-[70px] sm:w-[80px] sm:h-[95px] lg:w-[99px] lg:h-[117px] object-contain"
+              alt="Lightning icon"
+              src="/images/2676-080625-vora-hp-png-02-2.png"
+            />
+
+            <div className="font-semibold text-xl sm:text-2xl lg:text-3xl tracking-[1.5px] leading-[26px] sm:leading-[30px] lg:leading-[36px]">
               CLIENT FEEDBACK
             </div>
           </div>
@@ -102,306 +80,53 @@ export const TestimonialSection = () => {
           </h2>
         </div>
 
-        {/* Desktop Layout */}
-        <div className="hidden lg:flex items-start gap-8 w-full">
-          {/* Left side testimonials grid */}
-          <div className="flex flex-col gap-8 flex-1">
-            {/* First row */}
-            <div className="flex items-center gap-8">
-              {testimonials.slice(0, 2).map((testimonial, index) => (
-                <Card
-                  key={`testimonial-${index}`}
-                  className={`p-8 rounded-2xl border-[none] relative before:content-[''] before:absolute before:inset-0 before:p-px before:rounded-2xl before:[background:linear-gradient(180deg,rgba(254,221,0,1)_0%,rgba(254,221,0,1)_100%)] before:[-webkit-mask:linear-gradient(#fff_0_0)_content-box,linear-gradient(#fff_0_0)] before:[-webkit-mask-composite:xor] before:[mask-composite:exclude] before:z-[1] before:pointer-events-none transform transition-all duration-700 hover:scale-105 hover:shadow-2xl ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-12'
-                    }`}
-                  style={{ animationDelay: `${index * 200}ms` }}
-                >
-                  <CardContent className="p-0 flex flex-col gap-6">
-                    <img
-                      className="w-15 h-5 self-start"
-                      alt="Star icon"
-                      src="/images/star-icon.svg"
-                    />
+        {/* Brand Logos Marquee */}
+        <div className={`w-full transition-all duration-1000 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
+          }`}>
+          <div className="relative overflow-hidden">
+            {/* Gradient overlays for smooth fade effect */}
+            <div className="absolute left-0 top-0 w-20 h-full bg-gradient-to-r from-[#f4f5f6] to-transparent z-10"></div>
+            <div className="absolute right-0 top-0 w-20 h-full bg-gradient-to-l from-[#f4f5f6] to-transparent z-10"></div>
 
-                    <div className="w-[336px] font-normal text-black text-base leading-6">
-                      &#34;Amazing service! The team was punctual,
-                      knowledgeable, and fixed. Great customer support and
-                      top-notch expertise.&#34;
-                    </div>
-
-                    <div className="flex items-end justify-between w-full">
-                      <div className="flex flex-col items-start gap-1 transform transition-all duration-300 hover:translate-x-1">
-                        <div className="font-semibold text-black text-base tracking-[-0.32px] leading-[17.6px] whitespace-nowrap mt-[-1.00px]">
-                          {testimonial.name}
-                        </div>
-
-                        <div className="font-normal text-[#000000b2] text-sm leading-[21px] whitespace-nowrap">
-                          {testimonial.position}
-                        </div>
-                      </div>
-
-                      <img
-                        className={`h-3 ${testimonial.vectorWidth}`}
-                        alt="Vector"
-                        src={testimonial.vectorSrc}
-                      />
-                    </div>
-                  </CardContent>
-                </Card>
-              ))}
-            </div>
-
-            {/* Second row */}
-            <div className="flex items-center gap-8">
-              {testimonials.slice(2, 4).map((testimonial, index) => (
-                <Card
-                  key={`testimonial-${index + 2}`}
-                  className={`p-8 rounded-2xl border-[none] relative before:content-[''] before:absolute before:inset-0 before:p-px before:rounded-2xl before:[background:linear-gradient(180deg,rgba(254,221,0,1)_0%,rgba(254,221,0,1)_100%)] before:[-webkit-mask:linear-gradient(#fff_0_0)_content-box,linear-gradient(#fff_0_0)] before:[-webkit-mask-composite:xor] before:[mask-composite:exclude] before:z-[1] before:pointer-events-none transform transition-all duration-700 hover:scale-105 hover:shadow-2xl ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-12'
-                    }`}
-                  style={{ animationDelay: `${(index + 2) * 200}ms` }}
-                >
-                  <CardContent className="p-0 flex flex-col gap-6">
-                    <img
-                      className="w-15 h-5 self-start"
-                      alt="Star icon"
-                      src="/images/star-icon.svg"
-                    />
-
-                    <div className="w-[336px] font-normal text-black text-base leading-6">
-                      &#34;Amazing service! The team was punctual,
-                      knowledgeable, and fixed. Great customer support and
-                      top-notch expertise.&#34;
-                    </div>
-
-                    <div className="flex items-end justify-between w-full">
-                      <div className="flex flex-col items-start gap-1 transform transition-all duration-300 hover:translate-x-1">
-                        <div className="font-semibold text-black text-base tracking-[-0.32px] leading-[17.6px] whitespace-nowrap mt-[-1.00px]">
-                          {testimonial.name}
-                        </div>
-
-                        <div className="font-normal text-[#000000b2] text-sm leading-[21px] whitespace-nowrap">
-                          {testimonial.position}
-                        </div>
-                      </div>
-
-                      <img
-                        className={`h-3 ${testimonial.vectorWidth}`}
-                        alt="Vector"
-                        src={testimonial.vectorSrc}
-                      />
-                    </div>
-                  </CardContent>
-                </Card>
-              ))}
-            </div>
-          </div>
-
-          {/* Featured person cards slider - Reduced size */}
-          <div className={`w-full max-w-[280px] xl:max-w-[320px] relative transform transition-all duration-1000 ${isVisible ? 'opacity-100 translate-x-0' : 'opacity-0 translate-x-12'
-            }`}>
-            <div className="relative overflow-hidden rounded-2xl">
-              <div
-                className="flex transition-transform duration-500 ease-in-out"
-                style={{ transform: `translateX(-${activePersonCard * 100}%)` }}
-              >
-                {personCards.map((person, index) => (
-                  <div key={index} className="w-full flex-shrink-0">
-                    <Card className="rounded-2xl overflow-hidden bg-[#e6e6e6] transform transition-all duration-500 hover:scale-105 hover:shadow-2xl">
-                      <CardContent className="p-0 relative">
-                        <div className="relative w-full aspect-[4/5] overflow-hidden">
-                          <img
-                            className="w-full h-full object-cover"
-                            alt={person.alt}
-                            src={person.image}
-                          />
-                        </div>
-
-                        <div className="p-4 xl:p-6 bg-[#e6e6e6] flex flex-col items-start gap-1">
-                          <div className="font-semibold text-black text-base tracking-[-0.32px] leading-[17.6px] whitespace-nowrap">
-                            {person.name}
-                          </div>
-
-                          <div className="font-normal text-[#000000b2] text-sm leading-[21px] whitespace-nowrap">
-                            {person.position}
-                          </div>
-                        </div>
-                      </CardContent>
-                    </Card>
-                  </div>
-                ))}
-              </div>
-            </div>
-
-            {/* Navigation arrows - Updated progress indicator */}
-            <div className="absolute -bottom-16 left-1/2 transform -translate-x-1/2">
-              <div className="flex items-center gap-2">
-                <button
-                  onClick={prevPersonCard}
-                  className="w-12 h-12 bg-yellow-400 rounded-full flex items-center justify-center text-black hover:bg-yellow-500 transition-all duration-200 transform hover:scale-105 font-bold text-xl shadow-md"
-                >
-                  ←
-                </button>
-
-                {/* Dynamic progress indicator */}
-                <div className="flex items-center gap-1 px-4">
-                  {personCards.map((_, index) => (
-                    <div
-                      key={index}
-                      className={`h-0.5 rounded-full transition-all duration-300 ${index === activePersonCard
-                        ? 'w-8 bg-yellow-400'
-                        : 'w-2 bg-gray-300'
-                        }`}
-                    ></div>
-                  ))}
-                </div>
-
-                <button
-                  onClick={nextPersonCard}
-                  className="w-12 h-12 bg-yellow-400 rounded-full flex items-center justify-center text-black hover:bg-yellow-500 transition-all duration-200 transform hover:scale-105 font-bold text-xl shadow-md"
-                >
-                  →
-                </button>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        {/* Mobile Layout */}
-        <div className="lg:hidden w-full">
-          {/* Mobile Testimonial Carousel */}
-          <div className="relative">
-            <Card
-              className={`mx-4 p-6 md:p-8 rounded-2xl border-[none] relative before:content-[''] before:absolute before:inset-0 before:p-px before:rounded-2xl before:[background:linear-gradient(180deg,rgba(254,221,0,1)_0%,rgba(254,221,0,1)_100%)] before:[-webkit-mask:linear-gradient(#fff_0_0)_content-box,linear-gradient(#fff_0_0)] before:[-webkit-mask-composite:xor] before:[mask-composite:exclude] before:z-[1] before:pointer-events-none transform transition-all duration-500 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
-                }`}
-            >
-              <CardContent className="p-0 flex flex-col gap-6">
-                <img
-                  className="w-15 h-5 self-start"
-                  alt="Star icon"
-                  src="/images/star-icon.svg"
-                />
-
-                <div className="font-normal text-black text-base leading-6">
-                  &#34;Amazing service! The team was punctual,
-                  knowledgeable, and fixed. Great customer support and
-                  top-notch expertise.&#34;
-                </div>
-
-                <div className="flex items-end justify-between w-full">
-                  <div className="flex flex-col items-start gap-1">
-                    <div className="font-semibold text-black text-base tracking-[-0.32px] leading-[17.6px] whitespace-nowrap mt-[-1.00px]">
-                      {testimonials[activeTestimonial].name}
-                    </div>
-
-                    <div className="font-normal text-[#000000b2] text-sm leading-[21px] whitespace-nowrap">
-                      {testimonials[activeTestimonial].position}
-                    </div>
-                  </div>
-
-                  <img
-                    className={`h-3 ${testimonials[activeTestimonial].vectorWidth}`}
-                    alt="Vector"
-                    src={testimonials[activeTestimonial].vectorSrc}
-                  />
-                </div>
-              </CardContent>
-            </Card>
-
-            {/* Mobile Navigation */}
-            <div className="flex items-center justify-center gap-4 mt-8">
-              <button
-                onClick={prevTestimonial}
-                className="w-12 h-12 bg-yellow-400 rounded-full flex items-center justify-center text-xl font-bold transform transition-all duration-300 hover:scale-110 hover:bg-yellow-500 active:scale-95"
-              >
-                ←
-              </button>
-
-              <div className="flex gap-2">
-                {testimonials.map((_, index) => (
-                  <button
-                    key={index}
-                    onClick={() => setActiveTestimonial(index)}
-                    className={`w-3 h-3 rounded-full transition-all duration-300 ${index === activeTestimonial ? 'bg-yellow-400 scale-125' : 'bg-gray-300 hover:bg-gray-400'
-                      }`}
-                  />
-                ))}
-              </div>
-
-              <button
-                onClick={nextTestimonial}
-                className="w-12 h-12 bg-yellow-400 rounded-full flex items-center justify-center text-xl font-bold transform transition-all duration-300 hover:scale-110 hover:bg-yellow-500 active:scale-95"
-              >
-                →
-              </button>
-            </div>
-          </div>
-
-          {/* Featured person cards for mobile */}
-          <div className={`mt-12 transform transition-all duration-1000 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
-            }`}>
-            <div className="relative overflow-hidden mx-4">
-              <div
-                className="flex transition-transform duration-500 ease-in-out"
-                style={{ transform: `translateX(-${activePersonCard * 100}%)` }}
-              >
-                {personCards.map((person, index) => (
-                  <div key={index} className="w-full flex-shrink-0">
-                    <Card className="rounded-2xl overflow-hidden bg-[#e6e6e6] transform transition-all duration-500 hover:scale-105">
-                      <CardContent className="p-0 relative">
-                        <div className="relative w-full aspect-[4/5] overflow-hidden">
-                          <img
-                            className="w-full h-full object-cover"
-                            alt={person.alt}
-                            src={person.image}
-                          />
-                        </div>
-
-                        <div className="p-6 md:p-8 bg-[#e6e6e6] flex flex-col items-start gap-1">
-                          <div className="font-semibold text-black text-base tracking-[-0.32px] leading-[17.6px] whitespace-nowrap">
-                            {person.name}
-                          </div>
-
-                          <div className="font-normal text-[#000000b2] text-sm leading-[21px] whitespace-nowrap">
-                            {person.position}
-                          </div>
-                        </div>
-                      </CardContent>
-                    </Card>
-                  </div>
-                ))}
-              </div>
-            </div>
-
-            {/* Mobile person card navigation - Dynamic progress indicator */}
-            <div className="flex items-center justify-center gap-2 mt-6">
-              <button
-                onClick={prevPersonCard}
-                className="w-12 h-12 bg-yellow-400 rounded-full flex items-center justify-center text-xl font-bold transform transition-all duration-300 hover:scale-105 hover:bg-yellow-500 shadow-md"
-              >
-                ←
-              </button>
-
-              <div className="flex items-center gap-1 px-4">
-                {personCards.map((_, index) => (
+            <div className="flex items-center">
+              <div className="flex animate-marquee gap-16 md:gap-24 lg:gap-32 whitespace-nowrap py-8">
+                {[...brands, ...brands].map((brand, index) => (
                   <div
-                    key={index}
-                    className={`h-0.5 rounded-full transition-all duration-300 ${index === activePersonCard
-                      ? 'w-8 bg-yellow-400'
-                      : 'w-2 bg-gray-300'
-                      }`}
-                  ></div>
+                    key={`${brand.name}-${index}`}
+                    className="flex-shrink-0 flex items-center justify-center"
+                  >
+                    <img
+                      className="h-12 md:h-16 lg:h-20 w-auto opacity-60 hover:opacity-100 transition-opacity duration-300"
+                      alt={`${brand.name} logo`}
+                      src={brand.vectorSrc}
+                    />
+                  </div>
                 ))}
               </div>
-
-              <button
-                onClick={nextPersonCard}
-                className="w-12 h-12 bg-yellow-400 rounded-full flex items-center justify-center text-xl font-bold transform transition-all duration-300 hover:scale-105 hover:bg-yellow-500 shadow-md"
-              >
-                →
-              </button>
             </div>
           </div>
         </div>
       </div>
+
+      <style jsx>{`
+        @keyframes marquee {
+          from {
+            transform: translateX(0);
+          }
+          to {
+            transform: translateX(-50%);
+          }
+        }
+
+        .animate-marquee {
+          animation: marquee 30s linear infinite;
+        }
+
+        /* Pause animation on hover */
+        .animate-marquee:hover {
+          animation-play-state: paused;
+        }
+      `}</style>
     </section>
   );
 };

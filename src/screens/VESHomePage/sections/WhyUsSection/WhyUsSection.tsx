@@ -1,81 +1,3 @@
-// import { ZapIcon } from "lucide-react";
-// import React from "react";
-// import { Card, CardContent } from "../../../../components/ui/card";
-
-// export const WhyUsSection = (): JSX.Element => {
-//   // Feature data for mapping
-//   const features = [
-//     {
-//       title: "6 Decades of Experience",
-//       description:
-//         "Years of hands-on expertise in handling diverse electrical projects with precision and reliability.",
-//     },
-//     {
-//       title: "Advanced Technology",
-//       description:
-//         "We use the latest tools and techniques to deliver modern, energy-efficient electrical solutions good.",
-//     },
-//     {
-//       title: "Affordable Pricing",
-//       description:
-//         "Get high-quality electrical services at competitive rates without compromising on safety or efficiency.",
-//     },
-//     {
-//       title: "Satisfaction Guaranteed",
-//       description:
-//         "We prioritize customer satisfaction with timely service, attention to detail, and long-lasting solutions.",
-//     },
-//   ];
-
-//   return (
-//     <section className="w-full py-32 flex justify-center">
-//       <div className="container flex items-center gap-20">
-//         <div className="flex-1">
-//           <Card className="rounded-2xl overflow-hidden border-0">
-//             <CardContent className="p-0">
-//               <img
-//                 className="w-full h-full object-cover scale-x-[-1]"
-//                 alt="Electrical professionals at work"
-//                 src="/images/gemini-generated-image-q23hdqq23hdqq23h-1.png"
-//               />
-//             </CardContent>
-//           </Card>
-//         </div>
-
-//         <div className="flex-1 flex flex-col gap-14">
-//           <div className="flex flex-col gap-6">
-//             <div className="flex items-center gap-2">
-//               <ZapIcon className="w-5 h-5 text-yellow-300 fill-yellow-300" />
-//               <span className="font-medium text-base tracking-[1.28px] leading-[19.2px]">
-//                 WHY CHOOSE US
-//               </span>
-//             </div>
-
-//             <h2 className="font-semibold text-5xl tracking-[-1.44px] leading-[57.6px]">
-//               Trusted Electrical Services For Every Project
-//             </h2>
-//           </div>
-
-//           <div className="grid grid-cols-2 gap-12">
-//             {features.map((feature, index) => (
-//               <div key={index} className="flex flex-col gap-3">
-//                 <div className="flex items-center gap-3">
-//                   <img className="w-8 h-8" alt="Number" src="/images/number.svg" />
-//                   <h3 className="font-semibold text-[21px] tracking-[-0.63px] leading-[25.2px]">
-//                     {feature.title}
-//                   </h3>
-//                 </div>
-//                 <p className="text-sm text-[#07070099] leading-[21px]">
-//                   {feature.description}
-//                 </p>
-//               </div>
-//             ))}
-//           </div>
-//         </div>
-//       </div>
-//     </section>
-//   );
-// };
 import React from "react";
 import { Card, CardContent } from "../../../../components/ui/card";
 
@@ -124,13 +46,12 @@ export const WhyUsSection = (): JSX.Element => {
           {/* Header */}
           <div className="flex flex-col gap-6 transform translate-x-[50px] opacity-0 animate-[slideInRight_1s_ease-out_0.4s_forwards]">
             <div className="flex items-center gap-3 transform translate-y-4 opacity-0 animate-[fadeInUp_0.6s_ease-out_0.6s_forwards]">
-              {/* Yellow V */}
-              <span
-                className="flex items-center justify-center font-extrabold text-2xl sm:text-3xl lg:text-4xl"
-                style={{ color: "#fedd00e6" }}
-              >
-                V
-              </span>
+              {/* Lightning Icon */}
+              <img
+                className="w-[60px] h-[70px] sm:w-[80px] sm:h-[95px] lg:w-[99px] lg:h-[117px] object-contain"
+                alt="Lightning icon"
+                src="/images/2676-080625-vora-hp-png-02-2.png"
+              />
               {/* WHY CHOOSE US */}
               <span className="font-semibold text-xl sm:text-2xl lg:text-3xl tracking-[1.5px] leading-[26px] sm:leading-[30px] lg:leading-[36px]">
                 WHY CHOOSE US
