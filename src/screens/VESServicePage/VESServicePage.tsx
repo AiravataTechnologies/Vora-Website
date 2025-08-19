@@ -69,13 +69,13 @@ const scrollToTop = (behavior = 'smooth') => {
 };
 
 // Generic Service Page Template
-const ServicePageTemplate = ({ 
-  onBack, 
-  title, 
-  icon: IconComponent, 
-  description, 
-  services, 
-  features, 
+const ServicePageTemplate = ({
+  onBack,
+  title,
+  icon: IconComponent,
+  description,
+  services,
+  features,
   heroImage,
   gradientColors = "from-blue-600 to-blue-800"
 }) => {
@@ -87,61 +87,36 @@ const ServicePageTemplate = ({
   }, []);
 
   return (
-    <main 
+    <main
       ref={pageRef}
-      className={`bg-white flex flex-col items-center w-full min-h-screen transition-all duration-1000 ease-out ${
-        pageInView 
-          ? 'opacity-100 transform translate-y-0' 
+      className={`bg-white flex flex-col items-center w-full min-h-screen transition-all duration-1000 ease-out ${pageInView
+          ? 'opacity-100 transform translate-y-0'
           : 'opacity-0 transform translate-y-8'
-      }`}
+        }`}
     >
       <HeaderSection />
-      
-      {/* Hero Section */}
-      {/* <section className={`w-full h-[400px] bg-gradient-to-r ${gradientColors} flex flex-col items-center justify-center px-4 text-white`}>
+
+      <section className={`w-full h-[400px] bg-[rgb(196,196,196)] flex flex-col items-center justify-center px-4 text-black`}>
         <h1 className="text-5xl font-bold text-center mb-4">
           {title}
         </h1>
         <Breadcrumb className="text-sm">
           <BreadcrumbList>
             <BreadcrumbItem>
-              <button 
+              <button
                 onClick={onBack}
-                className="text-blue-200 hover:text-white underline"
+                className="text-black hover:text-gray-600 underline"
               >
                 Services
               </button>
             </BreadcrumbItem>
             <BreadcrumbSeparator />
             <BreadcrumbItem>
-              <span className="text-white">{title}</span>
+              <span className="text-black">{title}</span>
             </BreadcrumbItem>
           </BreadcrumbList>
         </Breadcrumb>
-      </section> */}
-      
-      {/* Hero Section */}
-<section className={`w-full h-[400px] bg-[rgb(196,196,196)] flex flex-col items-center justify-center px-4 text-black`}>
-  <h1 className="text-5xl font-bold text-center mb-4">
-    {title}
-  </h1>
-  <Breadcrumb className="text-sm">
-    <BreadcrumbList>
-      <BreadcrumbItem>
-        <button 
-          onClick={onBack}
-          className="text-black hover:text-gray-600 underline"
-        >
-          Services
-        </button>
-      </BreadcrumbItem>
-      <BreadcrumbSeparator />
-      <BreadcrumbItem>
-        <span className="text-black">{title}</span>
-      </BreadcrumbItem>
-    </BreadcrumbList>
-  </Breadcrumb>
-</section>
+      </section>
 
       {/* Content Section */}
       <section className="w-full py-16 bg-white">
@@ -152,14 +127,14 @@ const ServicePageTemplate = ({
                 <IconComponent className="w-5 h-5 text-yellow-600" />
                 <span className="font-medium text-yellow-800">Professional Service</span>
               </div>
-              
+
               <h2 className="text-4xl font-bold text-gray-900">
                 {description}
               </h2>
-              
+
               <p className="text-lg text-gray-600 leading-relaxed">
-                Our expert team provides comprehensive {title.toLowerCase()} services 
-                for both residential and commercial projects. We ensure quality, 
+                Our expert team provides comprehensive {title.toLowerCase()} services
+                for both residential and commercial projects. We ensure quality,
                 efficiency, and compliance with all industry standards.
               </p>
 
@@ -179,8 +154,8 @@ const ServicePageTemplate = ({
                 <Button className="bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 rounded-lg transition-colors">
                   Get Free Quote
                 </Button>
-                <Button 
-                  variant="ghost" 
+                <Button
+                  variant="ghost"
                   className="border border-gray-300 hover:bg-gray-50 px-6 py-3 rounded-lg transition-colors"
                 >
                   Call Now: (555) 123-4567
@@ -457,48 +432,120 @@ const EnergyEfficiencyPage = ({ onBack }) => {
 };
 
 // Enhanced Hero Section with animations
-const HeroSection = () => {
-  const [heroRef, heroInView] = useInView(0.3);
-  const [titleRef, titleInView] = useInView(0.5);
-  const [breadcrumbRef, breadcrumbInView] = useInView(0.5);
+// const HeroSection = () => {
+//   const [heroRef, heroInView] = useInView(0.3);
+//   const [titleRef, titleInView] = useInView(0.5);
+//   const [breadcrumbRef, breadcrumbInView] = useInView(0.5);
 
-  return (
-    <section 
-      ref={heroRef}
-      className={`w-full h-[250px] sm:h-[350px] lg:h-[400px] bg-[#c4c4c4] flex flex-col items-center justify-center px-4 transition-all duration-1000 ease-out ${
-        heroInView 
-          ? 'opacity-100 transform translate-y-0' 
-          : 'opacity-0 transform translate-y-8'
-      }`}
-    >
-      <h1 
-        ref={titleRef}
-        className={`text-4xl sm:text-5xl lg:text-6xl xl:text-[80px] font-bold text-center mb-4 sm:mb-6 lg:mb-8 transition-all duration-1200 ease-out delay-300 ${
-          titleInView 
-            ? 'opacity-100 transform translate-y-0 scale-100' 
-            : 'opacity-0 transform translate-y-12 scale-95'
-        }`}
-      >
-        Service
-      </h1>
+//   return (
+//     <section 
+//       ref={heroRef}
+//       className={`w-full h-[250px] sm:h-[350px] lg:h-[400px] bg-[#c4c4c4] flex flex-col items-center justify-center px-4 transition-all duration-1000 ease-out ${
+//         heroInView 
+//           ? 'opacity-100 transform translate-y-0' 
+//           : 'opacity-0 transform translate-y-8'
+//       }`}
+//     >
+//       <h1 
+//         ref={titleRef}
+//         className={`text-4xl sm:text-5xl lg:text-6xl xl:text-[80px] font-bold text-center mb-4 sm:mb-6 lg:mb-8 transition-all duration-1200 ease-out delay-300 ${
+//           titleInView 
+//             ? 'opacity-100 transform translate-y-0 scale-100' 
+//             : 'opacity-0 transform translate-y-12 scale-95'
+//         }`}
+//       >
+//         Service
+//       </h1>
 
-      <div
-        ref={breadcrumbRef}
-        className={`transition-all duration-1000 ease-out delay-600 ${
-          breadcrumbInView 
-            ? 'opacity-100 transform translate-y-0' 
-            : 'opacity-0 transform translate-y-8'
-        }`}
-      >
-        <div className="flex items-center gap-2 text-sm md:text-base">
-          <a href="/" className="hover:underline">Homepage</a>
-          <span>/</span>
-          <a href="/services" className="hover:underline">Services</a>
+//       <div
+//         ref={breadcrumbRef}
+//         className={`transition-all duration-1000 ease-out delay-600 ${
+//           breadcrumbInView 
+//             ? 'opacity-100 transform translate-y-0' 
+//             : 'opacity-0 transform translate-y-8'
+//         }`}
+//       >
+//         <div className="flex items-center gap-2 text-sm md:text-base">
+//           <a href="/" className="hover:underline">Homepage</a>
+//           <span>/</span>
+//           <a href="/services" className="hover:underline">Services</a>
+//         </div>
+//       </div>
+//     </section>
+//   );
+// };
+// Service Page Header Section Component - Matching About Page Style
+const HeroSection = ({ logoPath = "https://via.placeholder.com/120x120/ffffff/000000?text=LOGO" }) => (
+  <div style={{ backgroundColor: '#c4c4c4' }} className="text-white py-8 sm:py-12 md:py-16 lg:py-20 mt-16 sm:mt-0">
+    <div className="container mx-auto px-4 sm:px-6 md:px-8 max-w-7xl">
+      <div className="text-center">
+        <div className="flex justify-center mb-4 sm:mb-6">
         </div>
+        <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-6xl xl:text-7xl font-bold mb-3 sm:mb-4 text-slate-800 animate-slide-down">Service</h1>
+        <p className="text-base sm:text-lg md:text-xl lg:text-2xl text-slate-700 max-w-4xl mx-auto px-2 sm:px-4 animate-fade-in opacity-0 animation-delay-300">
+          Comprehensive Solutions Tailored to Your Business Needs.
+        </p>
+        <nav className="flex justify-center items-center mt-4 sm:mt-6 text-slate-600 animate-fade-in opacity-0 animation-delay-500">
+          <span className="text-xs sm:text-sm md:text-base lg:text-lg">Homepage</span>
+          <span className="mx-2 text-sm sm:text-lg">›</span>
+          <span className="text-xs sm:text-sm md:text-base lg:text-lg">Services</span>
+        </nav>
       </div>
-    </section>
-  );
-};
+    </div>
+    <style>{`
+            @keyframes fade-in-up {
+                from {
+                    opacity: 0;
+                    transform: translateY(30px);
+                }
+                to {
+                    opacity: 1;
+                    transform: translateY(0);
+                }
+            }
+            
+            @keyframes slide-down {
+                from {
+                    opacity: 0;
+                    transform: translateY(-30px);
+                }
+                to {
+                    opacity: 1;
+                    transform: translateY(0);
+                }
+            }
+            
+            @keyframes fade-in {
+                from {
+                    opacity: 0;
+                }
+                to {
+                    opacity: 1;
+                }
+            }
+            
+            .animate-fade-in-up {
+                animation: fade-in-up 0.8s ease-out;
+            }
+            
+            .animate-slide-down {
+                animation: slide-down 0.6s ease-out;
+            }
+            
+            .animate-fade-in {
+                animation: fade-in 0.8s ease-out forwards;
+            }
+            
+            .animation-delay-300 {
+                animation-delay: 0.3s;
+            }
+            
+            .animation-delay-500 {
+                animation-delay: 0.5s;
+            }
+        `}</style>
+  </div>
+);
 
 // Enhanced Services Section with staggered animations
 const ServicesSection = ({ onServiceClick }) => {
@@ -547,13 +594,12 @@ const ServicesSection = ({ onServiceClick }) => {
   ];
 
   return (
-    <section 
+    <section
       ref={sectionRef}
-      className={`w-full py-12 md:py-16 lg:py-20 bg-[#f4f4f6] transition-all duration-1500 ease-out ${
-        sectionInView 
-          ? 'opacity-100 transform translate-y-0' 
+      className={`w-full py-12 md:py-16 lg:py-20 bg-[#f4f4f6] transition-all duration-1500 ease-out ${sectionInView
+          ? 'opacity-100 transform translate-y-0'
           : 'opacity-0 transform translate-y-16'
-      }`}
+        }`}
     >
       <div className="container mx-auto px-4 sm:px-6 max-w-7xl">
         <div className="flex flex-col items-center gap-6 lg:gap-8">
@@ -561,20 +607,18 @@ const ServicesSection = ({ onServiceClick }) => {
             ref={logoRef}
             src="/images/V logo.png"
             alt="Logo"
-            className={`w-16 h-12 md:w-20 md:h-15 object-contain transition-all duration-1200 ease-out delay-300 ${
-              logoInView 
-                ? 'opacity-100 transform translate-y-0 rotate-0' 
+            className={`w-16 h-12 md:w-20 md:h-15 object-contain transition-all duration-1200 ease-out delay-300 ${logoInView
+                ? 'opacity-100 transform translate-y-0 rotate-0'
                 : 'opacity-0 transform translate-y-12 rotate-12'
-            }`}
+              }`}
           />
-          
-          <div 
+
+          <div
             ref={headerRef}
-            className={`flex flex-col items-center gap-4 max-w-2xl text-center transition-all duration-1400 ease-out delay-500 ${
-              headerInView 
-                ? 'opacity-100 transform translate-y-0' 
+            className={`flex flex-col items-center gap-4 max-w-2xl text-center transition-all duration-1400 ease-out delay-500 ${headerInView
+                ? 'opacity-100 transform translate-y-0'
                 : 'opacity-0 transform translate-y-16'
-            }`}
+              }`}
           >
             <div className="inline-flex items-center gap-2">
               <div className="font-medium text-[#070700] text-sm md:text-base tracking-wider">
@@ -586,7 +630,7 @@ const ServicesSection = ({ onServiceClick }) => {
             </h2>
           </div>
 
-          <div 
+          <div
             ref={cardsRef}
             className="grid grid-cols-1 md:grid-cols-2 gap-6 w-full"
           >
@@ -616,12 +660,11 @@ const ServiceCard = ({ service, index, isVisible, onServiceClick }) => {
 
   return (
     <div
-      className={`flex flex-col sm:flex-row overflow-hidden border border-gray-200 rounded-xl lg:rounded-2xl bg-white transition-all duration-1000 ease-out hover:shadow-lg hover:scale-[1.02] hover:-translate-y-1 ${
-        isVisible 
-          ? 'opacity-100 transform translate-y-0 scale-100' 
+      className={`flex flex-col sm:flex-row overflow-hidden border border-gray-200 rounded-xl lg:rounded-2xl bg-white transition-all duration-1000 ease-out hover:shadow-lg hover:scale-[1.02] hover:-translate-y-1 ${isVisible
+          ? 'opacity-100 transform translate-y-0 scale-100'
           : 'opacity-0 transform translate-y-20 scale-95'
-      }`}
-      style={{ 
+        }`}
+      style={{
         transitionDelay: isVisible ? `${delay}ms` : '0ms',
         transformOrigin: 'center bottom'
       }}
@@ -666,11 +709,10 @@ const AnimatedSection = ({ children, delay = 0 }) => {
   return (
     <div
       ref={ref}
-      className={`transition-all duration-1000 ease-out ${
-        inView 
-          ? 'opacity-100 transform translate-y-0' 
+      className={`transition-all duration-1000 ease-out ${inView
+          ? 'opacity-100 transform translate-y-0'
           : 'opacity-0 transform translate-y-12'
-      }`}
+        }`}
       style={{ transitionDelay: `${delay}ms` }}
     >
       {children}
@@ -735,12 +777,11 @@ export const VESServicePage = () => {
   };
 
   return (
-    <main 
-      className={`bg-white flex flex-col items-center w-full transition-all duration-1000 ease-out ${
-        pageLoaded 
-          ? 'opacity-100' 
+    <main
+      className={`bg-white flex flex-col items-center w-full transition-all duration-1000 ease-out ${pageLoaded
+          ? 'opacity-100'
           : 'opacity-0'
-      }`}
+        }`}
     >
       {renderCurrentPage()}
     </main>

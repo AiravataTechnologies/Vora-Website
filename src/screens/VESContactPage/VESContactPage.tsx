@@ -96,68 +96,78 @@ const LazySection = ({
 };
 
 // Contact Page Header Section Component - Fixed mobile spacing
-const ContactPageHeader = ({ logoPath = "/imeages/2676-080625-vora-hp-png-02-2.png" }) => {
-    const [isVisible, setIsVisible] = React.useState(false);
-    const ref = React.useRef(null);
-
-    React.useEffect(() => {
-        // Add smooth scroll behavior to the entire document
-        document.documentElement.style.scrollBehavior = 'smooth';
-        
-        const observer = new IntersectionObserver(
-            ([entry]) => {
-                if (entry.isIntersecting) {
-                    setIsVisible(true);
-                }
-            },
-            {
-                threshold: 0.1,
-                rootMargin: "0px 0px -100px 0px"
-            }
-        );
-
-        if (ref.current) {
-            observer.observe(ref.current);
-        }
-
-        return () => {
-            document.documentElement.style.scrollBehavior = 'auto';
-            observer.disconnect();
-        };
-    }, []);
-
-    return (
-        <div 
-            ref={ref}
-            style={{ backgroundColor: '#c4c4c4' }} 
-            className={`text-white py-8 sm:py-12 md:py-16 lg:py-20 mt-16 sm:mt-0 transition-opacity duration-500 ${isVisible ? 'opacity-100' : 'opacity-0'}`}
-        >
-            <div className="container mx-auto px-4 sm:px-6 md:px-8 max-w-7xl">
-                <div className="text-center">
-                    <div className="flex justify-center mb-4 sm:mb-6">
-                        {/* Company Logo Image */}
-                        {/* <div className="w-16 h-16 sm:w-20 sm:h-20 md:w-24 md:h-24 lg:w-28 lg:h-28 bg-white rounded-full flex items-center justify-center shadow-lg overflow-hidden">
-                            <img 
-                                src={logoPath} 
-                                alt="Company Logo" 
-                                className="w-full h-full object-contain p-1.5 sm:p-2"
-                            />
-                        </div> */}
-                    </div>
-                    <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-6xl xl:text-7xl font-bold mb-3 sm:mb-4 text-slate-800">Contact Us</h1>
-                    <p className="text-base sm:text-lg md:text-xl lg:text-2xl text-slate-700 max-w-4xl mx-auto px-2 sm:px-4">
-                        Get in touch with our expert electrical team for all your residential, commercial, and industrial needs
-                    </p>
-                    <nav className="flex justify-center items-center mt-4 sm:mt-6 text-slate-600">
-                        <span className="text-xs sm:text-sm md:text-base lg:text-lg">Homepage</span>
-                        <span className="mx-2 text-sm sm:text-lg">›</span>
-                        <span className="text-xs sm:text-sm md:text-base lg:text-lg">Contact</span>
-                    </nav>
+// Contact Page Header Section Component - Matching About Page Style
+const ContactPageHeader = ({ logoPath = "/imeages/2676-080625-vora-hp-png-02-2.png" }) => (
+    <div style={{ backgroundColor: '#c4c4c4' }} className="text-white py-8 sm:py-12 md:py-16 lg:py-20 mt-16 sm:mt-0">
+        <div className="container mx-auto px-4 sm:px-6 md:px-8 max-w-7xl">
+            <div className="text-center">
+                <div className="flex justify-center mb-4 sm:mb-6">
                 </div>
+                <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-6xl xl:text-7xl font-bold mb-3 sm:mb-4 text-slate-800 animate-slide-down">Contact Us</h1>
+                <p className="text-base sm:text-lg md:text-xl lg:text-2xl text-slate-700 max-w-4xl mx-auto px-2 sm:px-4 animate-fade-in opacity-0 animation-delay-300">
+                    Get in touch with our expert electrical team for all your residential, commercial, and industrial needs
+                </p>
+                <nav className="flex justify-center items-center mt-4 sm:mt-6 text-slate-600 animate-fade-in opacity-0 animation-delay-500">
+                    <span className="text-xs sm:text-sm md:text-base lg:text-lg">Homepage</span>
+                    <span className="mx-2 text-sm sm:text-lg">›</span>
+                    <span className="text-xs sm:text-sm md:text-base lg:text-lg">Contact</span>
+                </nav>
             </div>
         </div>
-    );
-};
+        <style>{`
+            @keyframes fade-in-up {
+                from {
+                    opacity: 0;
+                    transform: translateY(30px);
+                }
+                to {
+                    opacity: 1;
+                    transform: translateY(0);
+                }
+            }
+            
+            @keyframes slide-down {
+                from {
+                    opacity: 0;
+                    transform: translateY(-30px);
+                }
+                to {
+                    opacity: 1;
+                    transform: translateY(0);
+                }
+            }
+            
+            @keyframes fade-in {
+                from {
+                    opacity: 0;
+                }
+                to {
+                    opacity: 1;
+                }
+            }
+            
+            .animate-fade-in-up {
+                animation: fade-in-up 0.8s ease-out;
+            }
+            
+            .animate-slide-down {
+                animation: slide-down 0.6s ease-out;
+            }
+            
+            .animate-fade-in {
+                animation: fade-in 0.8s ease-out forwards;
+            }
+            
+            .animation-delay-300 {
+                animation-delay: 0.3s;
+            }
+            
+            .animation-delay-500 {
+                animation-delay: 0.5s;
+            }
+        `}</style>
+    </div>
+);
 
 // Animated Section Wrapper
 const AnimatedSection = ({ children, delay = 0 }) => {
@@ -377,7 +387,7 @@ const ContactContent = () => {
                                         ></textarea>
                                     </div>
                                     <div>
-                                        <Button 
+                                        <Button
                                             type="submit"
                                             className="w-full sm:w-auto bg-yellow-500 hover:bg-yellow-600 text-gray-900 px-8 py-4 text-lg font-medium transition-colors duration-300 transform hover:scale-105"
                                         >
